@@ -1,0 +1,22 @@
+# Main launch file for 03_eigen_and_launch
+# Applied Robotics
+
+launch:
+    - arg:
+        name: 'angular_frequency'
+        default: '1.0'
+    
+    - arg:
+        name: 'amplitude'
+        default: '1.0'
+
+    - node:
+        pkg: 'eigen_and_launch'
+        exec: 'sine_wave_publisher'
+        name: 'sine_wave_publisher'
+        args: '$(var angular_frequency) $(var amplitude)'
+    
+    - node:
+        pkg: 'eigen_and_launch'
+        exec: 'sine_wave_subscriber'
+        name: 'sine_wave_subscriber'
